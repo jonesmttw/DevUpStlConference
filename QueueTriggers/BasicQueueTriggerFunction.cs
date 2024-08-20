@@ -16,10 +16,10 @@ public class BasicQueueTriggerFunction
 
     [Function(nameof(BasicQueueTriggerFunction))]
     // if you want to send a message to another queue on completion, you can use the QueueOutput decorator 
-    // you would return either string[], byte[], oor JSON Serializable type
+    // you would return either string[], byte[], or JSON Serializable type
     //[QueueOutput("output-queue")]
     // can bind to string, byte[], BinaryData, QueueMessage, or JSON Serializable type
-    public void Run([QueueTrigger("devupstlqueue", Connection = "QueueStorageConnection")] QueueMessage message)
+    public void Run([QueueTrigger("devupstllocal", Connection = "QueueStorageConnection")] QueueMessage message)
     {
         _logger.LogInformation($"C# Queue trigger function processed: {message.MessageText}");
     }

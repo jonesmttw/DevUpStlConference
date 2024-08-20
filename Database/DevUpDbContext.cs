@@ -65,9 +65,6 @@ public class DevUpDbContext : DbContext
             entity.Property(e => e.RoomNumber)
                 .IsRequired()
                 .HasMaxLength(50);
-            
-            entity.HasMany(e => e.Sessions)
-                .WithOne();
         });
 
         modelBuilder.Entity<Session>(entity =>

@@ -14,7 +14,7 @@ public class ApiFunctions
         _logger = logger;
     }
 
-    [Function("ApiFunctions")]
+    [Function(nameof(ApiFunctions))]
     public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "put", "delete", Route = "mattjones")] HttpRequest req)
     {
         _logger.LogInformation("C# HTTP trigger function processed a request.");

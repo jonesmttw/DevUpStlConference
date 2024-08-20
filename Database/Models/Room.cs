@@ -10,5 +10,4 @@ public partial class Room
 {
     public Guid RoomId { get; set; }
     public string RoomNumber { get; set; } = default!;
-    public ICollection<Session> Sessions { get; set; } = default!;
 }

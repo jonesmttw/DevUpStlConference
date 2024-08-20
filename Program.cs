@@ -25,9 +25,9 @@ var host = new HostBuilder()
 
         //builder.UseMiddleware<CertificateValidationMiddleware>();
     })
-    .ConfigureAppConfiguration((hostContext, builder) =>
+    .ConfigureAppConfiguration((context, builder) =>
     {
-        if (hostContext.HostingEnvironment.IsDevelopment())
+        if (context.HostingEnvironment.IsDevelopment())
         {
             // Using user.secrets file requires a NuGet Package
             // Microsoft.Extensions.Configuration.UserSecrets
@@ -47,7 +47,7 @@ var host = new HostBuilder()
 
         // appsettings.Environment.json files
         builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false)
-            .AddJsonFile($"appsettings.{hostContext.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: false)
+            .AddJsonFile($"appsettings.{context.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: false)
             .AddEnvironmentVariables();
     })
     .ConfigureServices((context, services) =>
